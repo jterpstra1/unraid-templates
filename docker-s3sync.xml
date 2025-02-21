@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>s3sync</Name>
+  <Repository>jvdgt/docker-s3sync</Repository>
+  <Registry>https://hub.docker.com/r/jvdgt/docker-s3sync</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>to fill</Support>
+  <Project>https://github.com/jterpstra1/docker-s3sync</Project>
+  <Overview>This application backs up every folder mounted at `/data/` to a given AWS S3 path using the `aws s3 sync` command. It requires a pair of (IAM) Access and Secret Keys.&#xD;
+&#xD;
+You can supply the usual s3 sync parameters such as `--delete` and everything else. The cron schedule defines how often the sync command is executed, and it uses a lockfile to avoid parallel executions.&#xD;
+&#xD;
+This app has been based on the already available s3sync, however that was outdated, this version contains AWS CLI V2 and doesn't rely on extra python packages.</Overview>
+  <Category>Backup: Cloud: Status:Stable</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/jterpstra1/unraid-templates/main/s3sync.xml</TemplateURL>
+  <Icon>to fill</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1740146170</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="ACCESS_KEY" Target="ACCESS_KEY" Default="" Mode="" Description="Your AWS Access Key." Type="Variable" Display="always" Required="true" Mask="false">YOUR_ACCESS_KEY</Config>
+  <Config Name="SECRET_KEY" Target="SECRET_KEY" Default="" Mode="" Description="Your AWS Secret Key." Type="Variable" Display="always" Required="true" Mask="true">YOUR_SECRET_KEY</Config>
+  <Config Name="Region" Target="REGION" Default="" Mode="" Description="The region of your bucket." Type="Variable" Display="always" Required="true" Mask="false">eu-west-1</Config>
+  <Config Name="S3 Sync Parameters" Target="S3SYNCPARAMS" Default="" Mode="" Description="(Optional) Extra parameters for the s3 sync command." Type="Variable" Display="always" Required="false" Mask="false">--delete</Config>
+  <Config Name="S3 Path" Target="S3PATH" Default="" Mode="" Description="The target bucket path with optional prefix." Type="Variable" Display="always" Required="true" Mask="false">s3://YOUR_BUCKET_NAME</Config>
+  <Config Name="Cron Schedule" Target="CRON_SCHEDULE" Default="" Mode="" Description="Cron schedule of backup." Type="Variable" Display="always" Required="true" Mask="false">0 * * * *</Config>
+  <Config Name="Backup Source Example" Target="/data/example" Default="" Mode="ro" Description="This folder will be backed up." Type="Path" Display="always" Required="false" Mask="false">/mnt/user/exmaple/</Config>
+  <TailscaleStateDir/>
+</Container>
