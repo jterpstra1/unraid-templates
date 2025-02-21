@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>s3sync</Name>
+  <Name>s3sync-awscliv2</Name>
   <Repository>jvdgt/docker-s3sync</Repository>
   <Registry>https://hub.docker.com/r/jvdgt/docker-s3sync</Registry>
   <Network>bridge</Network>
