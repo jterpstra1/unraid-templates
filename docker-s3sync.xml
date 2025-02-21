@@ -17,7 +17,7 @@ This app has been based on the already available s3sync, however that was outdat
   <Category>Backup: Cloud: Status:Stable</Category>
   <WebUI/>
   <TemplateURL>https://raw.githubusercontent.com/jterpstra1/unraid-templates/main/s3sync.xml</TemplateURL>
-  <Icon>to fill</Icon>
+  <Icon>https://github.com/jterpstra1/unraid-templates/blob/7d9bc63e529b97568d6b6e55071d374486332866/icons/s3-icon.png</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
