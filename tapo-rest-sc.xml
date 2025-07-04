@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Tapo-rest-sc</Name>
+  <Repository>snarkbe/tapo-rest-sc</Repository>
+  <Registry>https://ghcr.io/snarkbe/tapo-rest-sc</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/snarkbe/tapo-rest-sc/issues</Support>
+  <Project>https://github.com/snarkbe/tapo-rest-sc</Project>
+  <Overview>A lightweight REST API for fetching power data from Tapo smart devices, packaged for Docker deployment.&#xD;
+&#xD;
+This project uses tapo-rest by Cl&#xE9;ment Nerma as the backend for device communication. The Dockerfile and deployment approach are inspired by the official tapo-rest Docker setup.</Overview>
+  <Category>HomeAutomation: Tools: Status:Stable</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/terpstra1/unraid-templates/main/tapo-rest-sc.xml</TemplateURL>
+  <Icon>https://github.com/jterpstra1/unraid-templates/blob/main/icons/tapo.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires>Before creating this container, create a folder tapo-rest-sc for the configuration files. &#xD;
+Create 2 files, config.json and devices.json. Reference the docs for the required configuration</Requires>
+  <Config Name="Backup Source Example" Target="/app" Default="" Mode="ro" Description="Folder for configuration files." Type="Path" Display="always" Required="true" Mask="false">/mnt/appdata/tapo-rest-sc</Config>
+  <TailscaleStateDir/>
+</Container>
