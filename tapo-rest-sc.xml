@@ -25,5 +25,8 @@ This project uses tapo-rest by Cl&#xE9;ment Nerma as the backend for device comm
   <Requires>Before creating this container, create a folder tapo-rest-sc for the configuration files. &#xD;
 Create 2 files, config.json and devices.json. Reference the docs for the required configuration</Requires>
   <Config Name="Configuration Files" Target="/app" Default="" Mode="ro" Description="Folder for configuration files." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/tapo-rest-sc</Config>
+  <Config Name="TAPO_EMAIL" Target="TAPO_EMAIL" Default="" Mode="" Description="Your Tapo email address" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="TAPO_PASSWORD" Target="TAPO_PASSWORD" Default="" Mode="" Description="Your Tapo password" Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="AUTH_PASSWORD" Target="AUTH_PASSWORD" Default="" Mode="" Description="AUTH_PASSWORD - This value needs to be same as in config.json" Type="Variable" Display="always" Required="true" Mask="true"/>
   <TailscaleStateDir/>
 </Container>
