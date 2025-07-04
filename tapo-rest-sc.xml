@@ -19,6 +19,7 @@ This project uses tapo-rest by Cl&#xE9;ment Nerma as the backend for device comm
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
+  <DateInstalled>1751614733</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Requires>Before creating this container, create a folder tapo-rest-sc for the configuration files. &#xD;
