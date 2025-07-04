@@ -9,9 +9,16 @@
   <Privileged>false</Privileged>
   <Support>https://github.com/snarkbe/tapo-rest-sc/issues</Support>
   <Project>https://github.com/snarkbe/tapo-rest-sc</Project>
-  <Overview>A lightweight REST API for fetching power data from Tapo smart devices, packaged for Docker deployment.&#xD;
+   <Overview>A lightweight REST API for fetching power data from Tapo smart devices, packaged for Docker deployment.&#xD;
 &#xD;
-This project uses tapo-rest by Cl&#xE9;ment Nerma as the backend for device communication. The Dockerfile and deployment approach are inspired by the official tapo-rest Docker setup.</Overview>
+This project uses tapo-rest by Cl&#xE9;ment Nerma as the backend for device communication. The Dockerfile and deployment approach are inspired by the official tapo-rest Docker setup.&#xD;
+&#xD;
+Note:&#xD;
+Before creating this container, create a folder (tapo-rest-sc) in your appdata share for the configuration files for this application.&#xD;
+Create two config files&#xD;
+- config.json&#xD;
+- devices.json&#xD;
+Reference the docs for the required configuration - https://github.com/snarkbe/tapo-rest-sc</Overview>
   <Category>HomeAutomation: Tools: Status:Stable</Category>
   <WebUI/>
   <TemplateURL>https://raw.githubusercontent.com/terpstra1/unraid-templates/main/tapo-rest-sc.xml</TemplateURL>
