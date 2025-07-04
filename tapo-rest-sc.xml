@@ -24,6 +24,6 @@ This project uses tapo-rest by Cl&#xE9;ment Nerma as the backend for device comm
   <DonateLink/>
   <Requires>Before creating this container, create a folder tapo-rest-sc for the configuration files. &#xD;
 Create 2 files, config.json and devices.json. Reference the docs for the required configuration</Requires>
-  <Config Name="Backup Source Example" Target="/app" Default="" Mode="ro" Description="Folder for configuration files." Type="Path" Display="always" Required="true" Mask="false">/mnt/appdata/tapo-rest-sc</Config>
+  <Config Name="Configuration Files" Target="/app" Default="" Mode="ro" Description="Folder for configuration files." Type="Path" Display="always" Required="true" Mask="false">/mnt/appdata/tapo-rest-sc</Config>
   <TailscaleStateDir/>
 </Container>
