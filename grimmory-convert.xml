@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>grimmory-convert</Name>
+  <Repository>ghcr.io/jterpstra1/grimmory-convert:latest</Repository>
+  <Registry>https://github.com/jterpstra1/grimmory-convert/pkgs/container/grimmory-convert</Registry>
+  <Network>none</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/jterpstra1/grimmory-convert/issues</Support>
+  <Project>https://github.com/jterpstra1/grimmory-convert</Project>
+  <Overview>Converts books in a Grimmory library to extra formats with Calibre's ebook-convert and saves them next to the original (Title.epub -&gt; Title.azw3). Grimmory's library watcher then attaches the new file to the existing book as an extra format.&#xD;
+&#xD;
+Starts in dry-run mode: check the log for what it would create, then set Dry Run to false. Existing files are never overwritten, and books that fail to convert are recorded in /config/failed.json and skipped on later runs.</Overview>
+  <Category>Tools: MediaApp:Books Status:Beta</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/jterpstra1/unraid-templates/main/grimmory-convert.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/grimmory-tools/grimmory/main/frontend/public/icons/icon-144x144.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires>A Grimmory library with folder monitoring enabled, organised in "Auto detect" or "Book per folder" mode.</Requires>
+  <Config Name="Library" Target="/books" Default="" Mode="rw" Description="The same share Grimmory uses as its library path. Converted files are written next to the originals." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/books/</Config>
+  <Config Name="Config" Target="/config" Default="/mnt/user/appdata/grimmory-convert" Mode="rw" Description="Keeps failed.json, the list of conversions that failed and are skipped. Delete an entry to retry it." Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/grimmory-convert</Config>
+  <Config Name="Dry Run" Target="DRY_RUN" Default="true" Mode="" Description="true: only log what would be converted. false: actually convert." Type="Variable" Display="always" Required="true" Mask="false">true</Config>
+  <Config Name="Target Formats" Target="TARGET_FORMATS" Default="azw3" Mode="" Description="Comma-separated formats to create, e.g. azw3,mobi,pdf. Use formats Grimmory knows: epub, pdf, mobi, azw3, fb2." Type="Variable" Display="always" Required="true" Mask="false">azw3</Config>
+  <Config Name="Source Formats" Target="SOURCE_FORMATS" Default="epub" Mode="" Description="Comma-separated formats to convert from, in order of preference when a book has several." Type="Variable" Display="always" Required="true" Mask="false">epub</Config>
+  <Config Name="Interval (minutes)" Target="INTERVAL_MINUTES" Default="0" Mode="" Description="Minutes between runs. 0 runs once and stops the container; start it again to re-run." Type="Variable" Display="always" Required="true" Mask="false">0</Config>
+  <Config Name="Max per run" Target="MAX_PER_RUN" Default="0" Mode="" Description="Stop after this many conversions per run (0 = no limit). Handy for a first test." Type="Variable" Display="always" Required="false" Mask="false">5</Config>
+  <Config Name="Extra ebook-convert arguments" Target="EXTRA_ARGS" Default="" Mode="" Description="Passed to every ebook-convert call, e.g. --output-profile kindle_pw3" Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="Timeout (seconds)" Target="CONVERT_TIMEOUT" Default="600" Mode="" Description="Give up on a single conversion after this long." Type="Variable" Display="advanced" Required="false" Mask="false">600</Config>
+  <Config Name="Timezone" Target="TZ" Default="Europe/Brussels" Mode="" Description="Timezone for log timestamps." Type="Variable" Display="advanced" Required="false" Mask="false">Europe/Brussels</Config>
+  <TailscaleStateDir/>
+</Container>
