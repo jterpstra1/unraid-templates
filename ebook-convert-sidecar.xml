@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>ebook-convert-sidecar</Name>
+  <Repository>ghcr.io/jterpstra1/ebook-convert-sidecar:latest</Repository>
+  <Registry>https://github.com/jterpstra1/ebook-convert-sidecar/pkgs/container/ebook-convert-sidecar</Registry>
+  <Network>none</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/jterpstra1/ebook-convert-sidecar/issues</Support>
+  <Project>https://github.com/jterpstra1/ebook-convert-sidecar</Project>
+  <Overview>Converts the books in your library folder to extra formats with Calibre's ebook-convert and saves them next to the original (Title.epub -&gt; Title.azw3). Library apps that treat same-named files in one folder as one book, such as Grimmory and BookOrbit, then show the new file as an extra format of the existing book.&#xD;
+&#xD;
+Starts in dry-run mode: check the log for what it would create, then set Dry Run to false. When a source changes later (e.g. your library app writes edited metadata into the EPUB), the converted file is made again. Files it did not create itself are never touched. Optional Calibre plugins can be added through the plugins folder.</Overview>
+  <Category>Tools: MediaApp:Books Status:Beta</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/jterpstra1/unraid-templates/main/ebook-convert-sidecar.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/jterpstra1/unraid-templates/main/icons/ebook-convert-sidecar.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires>A library app that treats same-named files in one folder as one book (e.g. Grimmory or BookOrbit, not in "book per file" mode) and notices new files through folder watching or a scheduled scan.</Requires>
+  <Config Name="Library" Target="/books" Default="" Mode="rw" Description="The same share your library app uses. Converted files are written next to the originals." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/books/</Config>
+  <Config Name="Config" Target="/config" Default="/mnt/user/appdata/ebook-convert-sidecar" Mode="rw" Description="Keeps state.json: which files this tool created and which conversions failed. Don't delete it, or converted files are no longer kept in sync." Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/ebook-convert-sidecar</Config>
+  <Config Name="Calibre plugins" Target="/plugins" Default="/mnt/user/appdata/ebook-convert-sidecar/plugins" Mode="ro" Description="Optional. Calibre plugin .zip files (and their settings .json) to install on every start. Restart the container after adding or removing one." Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/ebook-convert-sidecar/plugins</Config>
+  <Config Name="Dry Run" Target="DRY_RUN" Default="true" Mode="" Description="true: only log what would be converted. false: actually convert." Type="Variable" Display="always" Required="true" Mask="false">true</Config>
+  <Config Name="Target Formats" Target="TARGET_FORMATS" Default="azw3" Mode="" Description="Comma-separated formats to create, e.g. azw3,mobi,pdf. Use formats your library app can read." Type="Variable" Display="always" Required="true" Mask="false">azw3</Config>
+  <Config Name="Source Formats" Target="SOURCE_FORMATS" Default="epub" Mode="" Description="Comma-separated formats to convert from, in order of preference when a book has several." Type="Variable" Display="always" Required="true" Mask="false">epub</Config>
+  <Config Name="Interval (minutes)" Target="INTERVAL_MINUTES" Default="0" Mode="" Description="Minutes between runs. 0 runs once and stops the container; start it again to re-run." Type="Variable" Display="always" Required="true" Mask="false">0</Config>
+  <Config Name="Max per run" Target="MAX_PER_RUN" Default="0" Mode="" Description="Stop after this many conversions per run (0 = no limit). Handy for a first test." Type="Variable" Display="always" Required="false" Mask="false">5</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="User ID that owns the files it writes. Use the same as your library app (BookOrbit's default is 1000)." Type="Variable" Display="always" Required="true" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Group ID that owns the files it writes. Use the same as your library app (BookOrbit's default is 1000)." Type="Variable" Display="always" Required="true" Mask="false">100</Config>
+  <Config Name="Extra ebook-convert arguments" Target="EXTRA_ARGS" Default="" Mode="" Description="Passed to every ebook-convert call, e.g. --output-profile kindle_pw3" Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="Ignore files" Target="IGNORE_FILES" Default=".ignore" Mode="" Description="Comma-separated file names; a folder containing one of them is skipped." Type="Variable" Display="advanced" Required="false" Mask="false">.ignore</Config>
+  <Config Name="Timeout (seconds)" Target="CONVERT_TIMEOUT" Default="600" Mode="" Description="Give up on a single conversion after this long." Type="Variable" Display="advanced" Required="false" Mask="false">600</Config>
+  <Config Name="Timezone" Target="TZ" Default="Europe/Brussels" Mode="" Description="Timezone for log timestamps." Type="Variable" Display="advanced" Required="false" Mask="false">Europe/Brussels</Config>
+  <TailscaleStateDir/>
+</Container>
