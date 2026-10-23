@@ -12,3 +12,7 @@ A lightweight REST API for fetching power data from Tapo smart devices, packaged
 ## grimmory-convert
 [grimmory-convert.xml](grimmory-convert.xml)
 Converts books in a Grimmory library to extra formats (e.g. EPUB to AZW3) with Calibre and saves them next to the original, so Grimmory picks them up as extra formats of the same book.
+
+## ebook-convert-sidecar
+[ebook-convert-sidecar.xml](ebook-convert-sidecar.xml)
+Converts the books in your library folder to extra formats (e.g. EPUB to AZW3) with Calibre and saves them next to the original. Works with library apps that treat same-named files in one folder as one book, such as Grimmory and BookOrbit.
