@@ -9,9 +9,9 @@ Based on the already available s3sync CA App. This version however has been upda
 [tapo-rest-sc.xml](tapo-rest-sc.xml)
 A lightweight REST API for fetching power data from Tapo smart devices, packaged for Docker deployment.
 
-## grimmory-convert
+## grimmory-convert (deprecated)
 [grimmory-convert.xml](grimmory-convert.xml)
-Converts books in a Grimmory library to extra formats (e.g. EPUB to AZW3) with Calibre and saves them next to the original, so Grimmory picks them up as extra formats of the same book.
+Replaced by [ebook-convert-sidecar](#ebook-convert-sidecar), which does the same and also works with BookOrbit. The template is marked deprecated so Community Applications stops offering it and warns existing users. To switch, install ebook-convert-sidecar with the same settings and copy `state.json` from `/mnt/user/appdata/grimmory-convert` to `/mnt/user/appdata/ebook-convert-sidecar`.
 
 ## ebook-convert-sidecar
 [ebook-convert-sidecar.xml](ebook-convert-sidecar.xml)

@@ -6,10 +6,15 @@
   <Network>none</Network>
   <MyIP/>
   <Shell>sh</Shell>
+  <Deprecated>true</Deprecated>
   <Privileged>false</Privileged>
-  <Support>https://github.com/jterpstra1/grimmory-convert/issues</Support>
+  <Support>https://github.com/jterpstra1/ebook-convert-sidecar/issues</Support>
   <Project>https://github.com/jterpstra1/grimmory-convert</Project>
-  <Overview>Converts books in a Grimmory library to extra formats with Calibre's ebook-convert and saves them next to the original (Title.epub -&gt; Title.azw3). Grimmory's library watcher then attaches the new file to the existing book as an extra format.&#xD;
+  <Overview>DEPRECATED: replaced by ebook-convert-sidecar, which does the same and also works with BookOrbit and other library apps. This image gets no more updates.&#xD;
+&#xD;
+To switch: install ebook-convert-sidecar with the same Library path and settings, and copy state.json from /mnt/user/appdata/grimmory-convert to /mnt/user/appdata/ebook-convert-sidecar so it recognises the files this app already created. Then remove this container.&#xD;
+&#xD;
+Converts books in a Grimmory library to extra formats with Calibre's ebook-convert and saves them next to the original (Title.epub -&gt; Title.azw3). Grimmory's library watcher then attaches the new file to the existing book as an extra format.&#xD;
 &#xD;
 Starts in dry-run mode: check the log for what it would create, then set Dry Run to false. When a source changes later (e.g. Grimmory writes edited metadata into the EPUB), the converted file is made again. Files it did not create itself are never touched.</Overview>
   <Category>Tools: MediaApp:Books Status:Beta</Category>
